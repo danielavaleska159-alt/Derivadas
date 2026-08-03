@@ -1,96 +1,89 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Derivada mediante Límites</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Derivada por Definición de Límite</title>
 
-<style>
-body{
-    font-family: Arial, sans-serif;
-    background:#f2f2f2;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-}
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
-.contenedor{
-    background:white;
-    padding:30px;
-    width:500px;
-    border-radius:12px;
-    box-shadow:0 0 15px rgba(0,0,0,.2);
-}
+        .contenedor{
+            background: white;
+            padding: 30px;
+            width: 500px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
 
-h2{
-    text-align:center;
-    color:#0d47a1;
-}
+        h2{
+            text-align: center;
+            color: #0d47a1;
+        }
 
-input{
-    width:100%;
-    padding:10px;
-    margin-top:10px;
-    margin-bottom:15px;
-    font-size:16px;
-}
+        input{
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
 
-button{
-    width:100%;
-    padding:12px;
-    background:#1565c0;
-    color:white;
-    border:none;
-    border-radius:8px;
-    font-size:16px;
-    cursor:pointer;
-}
+        button{
+            width: 100%;
+            padding: 12px;
+            background: #1565c0;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
 
-button:hover{
-    background:#0d47a1;
-}
+        button:hover{
+            background: #0d47a1;
+        }
 
-#resultado{
-    margin-top:20px;
-    font-size:18px;
-    color:green;
-    font-weight:bold;
-}
-
-.ejemplo{
-    color:#555;
-    font-size:14px;
-}
-</style>
-
+        #resultado{
+            margin-top: 20px;
+            font-size: 18px;
+            color: green;
+            font-weight: bold;
+        }
+    </style>
 </head>
+
 <body>
 
 <div class="contenedor">
 
-<h2>Derivada por Definición de Límite</h2>
+    <h2>Derivada por Definición de Límite</h2>
 
-<p class="ejemplo">
-Escribe funciones usando JavaScript.<br>
-Ejemplos:
-<ul>
-<li>x*x</li>
-<li>Math.sin(x)</li>
-<li>x**3+2*x</li>
-<li>Math.exp(x)</li>
-</ul>
-</p>
+    <p><b>Ejemplos de funciones:</b></p>
+    <ul>
+        <li>x*x</li>
+        <li>x**3</li>
+        <li>Math.sin(x)</li>
+        <li>Math.cos(x)</li>
+        <li>x*x+3*x+2</li>
+    </ul>
 
-<label>Función f(x)</label>
-<input type="text" id="funcion" placeholder="Ej: x*x+3*x">
+    <label>Función f(x):</label>
+    <input type="text" id="funcion" placeholder="Ejemplo: x*x">
 
-<label>Valor de x</label>
-<input type="number" id="valorX" placeholder="Ej: 2">
+    <label>Valor de x:</label>
+    <input type="number" id="valorX" placeholder="Ejemplo: 2">
 
-<button onclick="derivar()">Calcular Derivada</button>
+    <button onclick="derivar()">Calcular Derivada</button>
 
-<div id="resultado"></div>
+    <div id="resultado"></div>
 
 </div>
 
@@ -101,8 +94,8 @@ function derivar(){
     let expresion = document.getElementById("funcion").value;
     let x = parseFloat(document.getElementById("valorX").value);
 
-    if(expresion==="" || isNaN(x)){
-        alert("Complete todos los campos.");
+    if(expresion === "" || isNaN(x)){
+        alert("Ingrese la función y el valor de x");
         return;
     }
 
@@ -110,23 +103,22 @@ function derivar(){
 
     try{
 
-        let f = new Function("x","return " + expresion);
+        let f = new Function("x", "return " + expresion);
 
         let fx = f(x);
-        let fxh = f(x+h);
+        let fxh = f(x + h);
 
-        let derivada = (fxh-fx)/h;
+        let derivada = (fxh - fx) / h;
 
         document.getElementById("resultado").innerHTML =
-        "f'("+x+") ≈ "+derivada;
+            "f'(" + x + ") ≈ " + derivada;
 
     }catch(error){
 
         document.getElementById("resultado").innerHTML =
-        "Error en la función.";
+            "Error: revise la función ingresada.";
 
     }
-
 }
 
 </script>
