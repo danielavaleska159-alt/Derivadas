@@ -1,127 +1,279 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Derivada por Definición de Límite</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beauty Glam - Tienda de Maquillaje</title>
 
-    <style>
-        body{
-            font-family: Arial, sans-serif;
-            background: #f2f2f2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+<style>
 
-        .contenedor{
-            background: white;
-            padding: 30px;
-            width: 500px;
-            border-radius: 12px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.2);
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
 
-        h2{
-            text-align: center;
-            color: #0d47a1;
-        }
+body{
+    background:#fff5f8;
+    color:#333;
+}
 
-        input{
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            margin-bottom: 15px;
-            font-size: 16px;
-        }
+header{
+    background:linear-gradient(90deg,#ff5fa2,#ff99c8);
+    color:white;
+    text-align:center;
+    padding:60px 20px;
+}
 
-        button{
-            width: 100%;
-            padding: 12px;
-            background: #1565c0;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-        }
+header h1{
+    font-size:50px;
+}
 
-        button:hover{
-            background: #0d47a1;
-        }
+header p{
+    font-size:20px;
+    margin-top:15px;
+}
 
-        #resultado{
-            margin-top: 20px;
-            font-size: 18px;
-            color: green;
-            font-weight: bold;
-        }
-    </style>
+.boton{
+    display:inline-block;
+    margin-top:25px;
+    background:#25D366;
+    color:white;
+    padding:15px 30px;
+    border-radius:30px;
+    text-decoration:none;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.boton:hover{
+    background:#1ebd5a;
+}
+
+section{
+    padding:50px;
+}
+
+.titulo{
+    text-align:center;
+    color:#ff2e7a;
+    margin-bottom:40px;
+    font-size:35px;
+}
+
+.productos{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 0 12px rgba(0,0,0,.15);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card h3{
+    text-align:center;
+    margin:15px 0;
+}
+
+.card p{
+    text-align:center;
+    padding:0 15px;
+}
+
+.precio{
+    color:#ff2e7a;
+    font-size:24px;
+    font-weight:bold;
+    margin:15px;
+}
+
+.btn{
+    display:block;
+    width:80%;
+    margin:20px auto;
+    text-align:center;
+    background:#ff2e7a;
+    color:white;
+    padding:12px;
+    text-decoration:none;
+    border-radius:30px;
+}
+
+.btn:hover{
+    background:#e01d67;
+}
+
+.pack{
+    background:#ffe6f1;
+    text-align:center;
+    border-radius:20px;
+    padding:40px;
+}
+
+.pack h2{
+    color:#ff2e7a;
+    font-size:40px;
+}
+
+.pack ul{
+    list-style:none;
+    margin:25px 0;
+}
+
+.pack li{
+    margin:10px;
+    font-size:20px;
+}
+
+.pack .precio{
+    font-size:40px;
+}
+
+footer{
+    background:#ff2e7a;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+</style>
+
 </head>
 
 <body>
 
-<div class="contenedor">
+<header>
 
-    <h2>Derivada por Definición de Límite</h2>
+<h1>💄 Beauty Glam</h1>
 
-    <p><b>Ejemplos de funciones:</b></p>
-    <ul>
-        <li>x*x</li>
-        <li>x**3</li>
-        <li>Math.sin(x)</li>
-        <li>Math.cos(x)</li>
-        <li>x*x+3*x+2</li>
-    </ul>
+<p>Descubre el maquillaje que resalta tu belleza.</p>
 
-    <label>Función f(x):</label>
-    <input type="text" id="funcion" placeholder="Ejemplo: x*x">
+<a class="boton"
+href="https://wa.me/593986397837?text=Hola,%20quiero%20más%20información%20sobre%20los%20productos.">
+Comprar por WhatsApp
+</a>
 
-    <label>Valor de x:</label>
-    <input type="number" id="valorX" placeholder="Ejemplo: 2">
+</header>
 
-    <button onclick="derivar()">Calcular Derivada</button>
+<section>
 
-    <div id="resultado"></div>
+<h2 class="titulo">Nuestros Productos</h2>
+
+<div class="productos">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600" alt="">
+<h3>Base Líquida HD</h3>
+<p>Cobertura completa y acabado natural.</p>
+<div class="precio">$18.99</div>
+<a class="btn"
+href="https://wa.me/593986397837?text=Quiero%20la%20Base%20Líquida%20HD">
+Comprar
+</a>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600" alt="">
+<h3>Paleta de Sombras</h3>
+<p>20 tonos con alta pigmentación.</p>
+<div class="precio">$22.99</div>
+<a class="btn"
+href="https://wa.me/593986397837?text=Quiero%20la%20Paleta%20de%20Sombras">
+Comprar
+</a>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1631214540242-6d9bdfb1f5c0?w=600" alt="">
+<h3>Labial Mate</h3>
+<p>Larga duración y colores intensos.</p>
+<div class="precio">$9.99</div>
+<a class="btn"
+href="https://wa.me/593986397837?text=Quiero%20el%20Labial%20Mate">
+Comprar
+</a>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600" alt="">
+<h3>Máscara de Pestañas</h3>
+<p>Volumen extremo durante todo el día.</p>
+<div class="precio">$11.99</div>
+<a class="btn"
+href="https://wa.me/593986397837?text=Quiero%20la%20Máscara%20de%20Pestañas">
+Comprar
+</a>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1583241800698-9d84d79b79b5?w=600" alt="">
+<h3>Rubor Compacto</h3>
+<p>Acabado suave y natural.</p>
+<div class="precio">$12.99</div>
+<a class="btn"
+href="https://wa.me/593986397837?text=Quiero%20el%20Rubor%20Compacto">
+Comprar
+</a>
+</div>
 
 </div>
 
-<script>
+</section>
 
-function derivar(){
+<section>
 
-    let expresion = document.getElementById("funcion").value;
-    let x = parseFloat(document.getElementById("valorX").value);
+<div class="pack">
 
-    if(expresion === "" || isNaN(x)){
-        alert("Ingrese la función y el valor de x");
-        return;
-    }
+<h2>✨ Pack Beauty Glam ✨</h2>
 
-    let h = 0.0000001;
+<p>¡Llévate todo lo que necesitas para un maquillaje completo!</p>
 
-    try{
+<ul>
+<li>✔ Base Líquida HD</li>
+<li>✔ Paleta de Sombras</li>
+<li>✔ Labial Mate</li>
+<li>✔ Máscara de Pestañas</li>
+<li>✔ Rubor Compacto</li>
+</ul>
 
-        let f = new Function("x", "return " + expresion);
+<div class="precio">$59.99</div>
 
-        let fx = f(x);
-        let fxh = f(x + h);
+<p><b>Antes: $76.95</b></p>
 
-        let derivada = (fxh - fx) / h;
+<a class="boton"
+href="https://wa.me/593986397837?text=Quiero%20comprar%20el%20Pack%20Beauty%20Glam">
+Comprar Pack
+</a>
 
-        document.getElementById("resultado").innerHTML =
-            "f'(" + x + ") ≈ " + derivada;
+</div>
 
-    }catch(error){
+</section>
 
-        document.getElementById("resultado").innerHTML =
-            "Error: revise la función ingresada.";
+<footer>
 
-    }
-}
+<h2>Beauty Glam</h2>
 
-</script>
+<p>📱 WhatsApp: 0986397837</p>
+
+<p>© 2026 Todos los derechos reservados.</p>
+
+</footer>
 
 </body>
 </html>
